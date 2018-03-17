@@ -1,0 +1,104 @@
+﻿@model Surrogacy.Models.MedicalInfo
+@using Surrogacy.Helper
+@using Surrogacy.Util
+
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Medical Info"; ;
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+    <div class="col-md-12">
+        <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+            <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+            <br />
+            <div class="validation-summary-errors" id="divSubMessage">
+                @Html.Raw(ViewBag.MessageSummary)
+            </div>
+        </div>
+    </div>
+    }
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Medical info</h3>
+                <div class="box-tools pull-right">
+                    <input type="submit" class="btn btn-info text-bold" value="Save">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-lg-8">
+                        <p>Have you ever had an endometrial ablation procedure? (Burning of the uterine lining).<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Ablation
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>Have you ever had weight loss surgery (such as gastric bypass)?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.WeightLoss
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+
+                        <p>Do you have any medical problems? *<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Medical
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>If you answered yes to the above question please provide more details.</p>
+                        @Html.TextAreaFor(model => model.MedicalDetail, new { @class = "form-control", placeholder = "Medical Detail" })
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>Are you currently taking any medications? *<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Medication
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+
+                    <div class="form-group col-lg-8">
+                        <p>If you answered yes to the above question please provide more details.</p>
+                        @Html.TextAreaFor(model => model.MedicationDetail, new { @class = "form-control", placeholder = "Medication Detail" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+
+                        <p>Are you currently breastfeeding? <span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.BreastFeeding
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>Do you have menstrual periods every month? <span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Periods
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="hidden">
+                        @Html.HiddenFor(model => model.MedicalInfoID)
+                        @Html.HiddenFor(model => model.UserID)
+                    </div>
+                </form>
+            </div>
+        </div>
+        }
+    </div>
+</section>

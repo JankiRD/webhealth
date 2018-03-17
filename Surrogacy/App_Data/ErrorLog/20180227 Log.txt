@@ -1,0 +1,126 @@
+-------------------------------------------------------------
+02/27/2018 00:16:06.771
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 00:20:40.250
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 00:21:35.524
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 00:24:48.370
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 00:25:55.136
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 10:07:53.251
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 10:45:21.397
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 11:00:33.529
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 11:03:34.778
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 12:56:10.119
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 12:56:31.889
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 12:57:44.041
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 13:02:06.176
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+
+-------------------------------------------------------------
+02/27/2018 23:50:54.900
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Service.PregnancyHistoryService.SavePregnancyHistory(PregnancyHistory pregnancyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\PregnancyHistoryService.cs:line 26
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.PregnancyHistory SavePregnancyHistory(Surrogacy.Models.PregnancyHistory)
+
+

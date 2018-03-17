@@ -1,0 +1,145 @@
+﻿@model Surrogacy.Models.User
+@using Surrogacy.Util
+@using Surrogacy.Helper
+@using System.Web.UI.HtmlControls
+
+@{
+    Layout = null;
+
+    if (TempData["ShowMessage"] == null) { TempData["ShowMessage"] = "No"; }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="@ApplicationManager.ApplicationFaviconPath" type="image/x-icon">
+    <title>@ApplicationManager.ApplicationName | Register</title>
+    @Styles.Render("~/Content/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css")
+    @Styles.Render("https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css")
+    @Styles.Render("~/Content/dist/css/AdminLTE.min.css")
+    @Styles.Render("~/Content/plugins/iCheck/square/blue.css")
+    @Styles.Render("~/Content/dist/css/other/sliderMessage.css")
+</head>
+<body class="hold-transition register-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <img src="@ApplicationManager.ApplicationLogoPath" />
+            <a href="@ApplicationManager.ApplicationWebLink">@ApplicationManager.ApplicationNameFP<b>@ApplicationManager.ApplicationNameLP</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Register to start your session</p>
+            @using (Html.BeginForm())
+            {
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model => model.FirstName, new { placeholder = "First Name", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model => model.LastName, new { placeholder = "Last Name", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model => model.Email, new { placeholder = "Email ID", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(model => model.UserName, new { placeholder = "User name", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { placeholder = "Retype Password", @class = "form-control", required = true })
+                <span class="glyphicon glyphicon-check form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                @Html.DropDownListFor(model => model.UserRole
+                                     , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("USERROLE")
+                                     , new { @class = "form-control", required = "true" })
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <input type="submit" value="Register" class="btn btn-primary btn-block btn-flat" />
+                </div>
+                <!-- /.col -->
+            </div>
+            }
+            @Html.ActionLink("I already have a membership", "Login", "Account")
+        </div>
+        <!-- /.login-box-body -->
+        <br />
+        @if (ViewBag.ShowMessage == true)
+        {
+        <div class="col-sm-12" style="font-size:16px">
+            <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                <br />
+                <div class="validation-summary-errors" id="divSubMessage">
+                    @Html.Raw(ViewBag.MessageSummary)
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+
+    <div id="messagebar"></div>
+
+    @Scripts.Render("~/Content/plugins/jQuery/jquery-2.2.3.min.js")
+    @Scripts.Render("~/Content/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/plugins/iCheck/icheck.min.js")
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+
+        $(document).ready(function ()
+        {
+            var showMessage = '@TempData["ShowMessage"]';
+            var messageText = '@TempData["MessageText"]';
+            var messageInterval = '@TempData["MessageInterval"]';
+            var messageType = '@TempData["MessageType"]';
+
+            if (showMessage == "Yes")
+            {
+                showMessageFromBottom(messageText, messageType, messageInterval);
+            }
+
+            if ('@TempData["ShowMessage"]' != '')
+            {
+                @TempData["ShowMessage"]= "No";
+            }
+
+        });
+
+        function showMessageFromBottom(messageText, messageType, messsageDelay)
+        {
+            var msgBar = document.getElementById("messagebar")
+
+            msgBar.className = messageType;
+            msgBar.innerText = messageText;
+            setTimeout(function () { msgBar.className = msgBar.className.replace(messageType, ""); }, messsageDelay);
+        }
+    </script>
+</body>
+</html>

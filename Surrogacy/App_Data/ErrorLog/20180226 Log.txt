@@ -1,0 +1,131 @@
+-------------------------------------------------------------
+02/26/2018 13:23:59.698
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 13:25:44.552
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 13:31:48.820
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 13:32:09.624
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 13:35:10.483
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 13:35:20.340
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogacyHistoryData.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogacyHistoryData.cs:line 32
+   at Surrogacy.Service.SurrogacyHistoryService.SaveSurrogacyHistory(SurrogacyHistory SurrogacyHistory) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogacyHistoryService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 20:12:32.681
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 32
+   at Surrogacy.Service.SurrogateService.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 20:12:40.785
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 32
+   at Surrogacy.Service.SurrogateService.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 20:14:25.666
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 32
+   at Surrogacy.Service.SurrogateService.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 20:17:14.520
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 32
+   at Surrogacy.Service.SurrogateService.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+02/26/2018 20:17:25.800
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Controllers.SurrogateController.ValidatePersonalInfoForm(SurrogatePersonalInfo surrogatePersonalInfo, String& responseMessage) in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\SurrogateController.cs:line 98
+   at Surrogacy.Controllers.SurrogateController.PersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\SurrogateController.cs:line 53
+[Source]       : Surrogacy
+[TargetSite]   : Boolean ValidatePersonalInfoForm(Surrogacy.Models.SurrogatePersonalInfo, System.String ByRef)
+
+
+-------------------------------------------------------------
+02/26/2018 20:19:24.693
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 32
+   at Surrogacy.Service.SurrogateService.SaveSurrogatePersonalInfo(SurrogatePersonalInfo surrogatePersonalInfo) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 25
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+

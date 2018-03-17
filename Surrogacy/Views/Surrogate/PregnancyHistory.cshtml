@@ -1,0 +1,102 @@
+﻿@model Surrogacy.Models.PregnancyHistory
+@using Surrogacy.Helper
+@using Surrogacy.Util
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Pregnancy History Info";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+    <div class="col-md-12">
+        <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+            <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+            <br />
+            <div class="validation-summary-errors" id="divSubMessage">
+                @Html.Raw(ViewBag.MessageSummary)
+            </div>
+        </div>
+    </div>
+    }
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Pregnancy History info</h3>
+                <div class="box-tools pull-right">
+                    <input type="submit" class="btn btn-info text-bold" value="Save">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-lg-6">
+                        <p>Number of pregnancies:<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoOfPregnancy, new { @type = "number", @class = "form-control", @value = "", placeholder = "No of Pregnancy", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Number of stillbirths<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoStillBirth, new { @type = "number", @class = "form-control", @value = "", placeholder = "No of Still Birth", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-6">
+
+                        <p>Number of miscarriages<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoMisCarriage, new { @type = "number", @class = "form-control", @value = "", placeholder = "No of Miscarriage", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Number of live births<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoLiveBirth, new { @type = "number", @class = "form-control", @value = "", placeholder = "No of Live Birth", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Number of abortions<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoAbortion, new { @type = "number", @class = "form-control", placeholder = "No of Abortion", @value = "", required = "true" })
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <p>List each of your delivery dates, whether they were vaginal or caesarean, how many weeks you delivered at, and the weight of each baby<span class="required text-red">*</span></p>
+                        @Html.TextAreaFor(model => model.List, new { @class = "form-control", placeholder = "Delievery Dates Detail", @row = 5 })
+
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Have you ever received fertility treatment in an effort to become pregnant?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Treatment
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Did you have any severe complications with any of your pregnancies or births?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Complication
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>If you answered yes to the above question please provide more details</p>
+                        @Html.TextAreaFor(model => model.Desc, new { @class = "form-control", placeholder = "Description", @row = 5 })
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>If any of your children are deceased, please state cause of death and the age of child at death</p>
+                        @Html.TextAreaFor(model => model.ChildDeath, new { @class = "form-control", placeholder = "Child Death", @row = 5 })
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p>Please list any and all emotional and/or physical problems you had with each pregnancy, delivery or after delivery</p>
+                        @Html.TextAreaFor(model => model.Problem, new { @class = "form-control", placeholder = "Problem", @row = 5 })
+                    </div>
+                    <div class="hidden">
+                        @Html.HiddenFor(model => model.PregnancyHistoryID)
+                        @Html.HiddenFor(model => model.UserID)
+                    </div>
+                </form>
+            </div>
+        </div>
+        }
+    </div>
+</section>

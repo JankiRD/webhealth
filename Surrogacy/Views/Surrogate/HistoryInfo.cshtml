@@ -1,0 +1,73 @@
+﻿@model Surrogacy.Models.SurrogacyHistory
+@using Surrogacy.Helper
+@using Surrogacy.Util
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | History Info";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+    <div class="col-md-12">
+        <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+            <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+            <br />
+            <div class="validation-summary-errors" id="divSubMessage">
+                @Html.Raw(ViewBag.MessageSummary)
+            </div>
+        </div>
+    </div>
+    }
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">History info</h3>
+                <div class="box-tools pull-right">
+                    <input type="submit" class="btn btn-info text-bold" value="Save">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-lg-8">
+                        <p>Have you ever been a surrogate before? <span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.SurrogateBefore
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>If you answered yes to the above question please provide more details.</p>
+                        @Html.TextAreaFor(model => model.DetailSurrogate, new { @class = "form-control", placeholder = "Detail Surrogate", @row = 5 })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+
+                        <p>Have you ever donated eggs before? <span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.EggDonate
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-8">
+                        <p>If you answered yes to the above question please provide more details.</p>
+                        @Html.TextAreaFor(model => model.DetailEggDonate, new { @class = "form-control", placeholder = "Detail of Egg Donation", @row = 5 })
+                    </div>
+                    <div class="hidden">
+                        @Html.HiddenFor(model => model.SurrogacyHistoryID)
+                        @Html.HiddenFor(model => model.UserID)
+                    </div>
+                </form>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+

@@ -1,0 +1,31 @@
+-------------------------------------------------------------
+03/01/2018 02:50:55.283
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.DashboardData.ViewDashboardData(Dashboard dashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Data\DashboardData.cs:line 32
+   at Surrogacy.Service.DashboardService.ViewDashboardData(Dashboard dashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DashboardService.cs:line 27
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/01/2018 02:51:55.801
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.DashboardData.ViewDashboardData(Dashboard dashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Data\DashboardData.cs:line 32
+   at Surrogacy.Service.DashboardService.ViewDashboardData(Dashboard dashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DashboardService.cs:line 27
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/01/2018 09:49:51.915
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Controllers.SurrogateController.PersonalInfo() in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\SurrogateController.cs:line 33
+[Source]       : Surrogacy
+[TargetSite]   : System.Web.Mvc.ActionResult PersonalInfo()
+
+

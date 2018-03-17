@@ -1,0 +1,151 @@
+﻿@model Surrogacy.Models.SurrogatePersonalInfo
+@using Surrogacy.Helper
+@using Surrogacy.Util
+
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Personal Info";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@*
+    $("#messageBox").hide();
+    lblMessage.InnerText = " Please correct below error first.";
+    divSubMessage.InnerHtml = responseMessage;
+    divSubMessage.Attributes["style"] = "display:none";
+    messageBox.Attributes["class"] = "alert alert-success alert-dismissable";
+    messageBox.Attributes["style"] = "display:block";
+    messageBox.Attributes["class"] = "alert alert-danger alert-dismissable";
+*@
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+        <div class="col-md-12">            
+            <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                <br />
+                <div class="validation-summary-errors" id="divSubMessage">
+                    @Html.Raw(ViewBag.MessageSummary)
+                </div> 
+            </div>            
+        </div>
+    }
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Personal info</h3>
+                <div class="box-tools pull-right">
+                    <input type="submit" class="btn btn-info text-bold" value="Save">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-lg-4">
+                        <p>First Name<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "First name", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Last Name<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last name", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+
+                        <p>Middle Name<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", placeholder = "Middle name", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Date of Birth<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.DOB, new { @class = "form-control", @id = "datepickerdob", placeholder = "MM/DD/YYYY", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Age<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.Age, new { @type = "number", @class = "form-control", @min = "1", @max = "150", placeholder = "Age", @value = "", required = "true" })
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <p>Citizenship<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.Citizenship, new { @class = "form-control", placeholder = "Citizen ship", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+
+                        <p>Height<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.Height, new { @type = "number", @class = "form-control", @min = "0", @step = "0.01", @max = "200", placeholder = "Height", @value = "", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+
+                        <p>Weight<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.Weight, new { @type = "number", @class = "form-control", @min = "0", @step = "0.01", @max = "200", placeholder = "Weight", @value = "", required = "true" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Marital Status<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.MaritalStatus
+                            , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("MARITALSTATUS")
+                            , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Spouse Full Name</p>
+                        @Html.TextBoxFor(model => model.SpouseFullName, new { @class = "form-control", placeholder = "Spouse Full Name"})
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Spouse DOB</p>
+                        @Html.TextBoxFor(model => model.SpouseDOB, new { @class = "form-control", @id = "datepickerspousedob", placeholder = "MM/DD/YYYY" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>No of child<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.NoOfChild, new { @type = "number", @class = "form-control", @min = "0", @max = "20", placeholder = "No of child", @value = "", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Have Step Child?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.StepChild
+                            , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                            , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Children Description</p>
+                        @Html.TextBoxFor(model => model.ChildDescription, new { @class = "form-control", placeholder = "Children Description"})
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Are you Pregnant?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Pregnant
+                            , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                            , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Are you Adopted?<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Adopted
+                        , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                        , new { @class = "form-control", required = "true" })
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        <p>Residence<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.Residence
+                        , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("RESIDENCE")
+                        , new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <p>Ethnic Background<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.EthnicBackGround, new { @class = "form-control", placeholder = "Ethnic Background", required = "true" })
+                    </div>
+                    <div class="hidden">
+                        @Html.HiddenFor(model => model.SurrogateID)
+                        @Html.HiddenFor(model => model.UserID)
+                    </div>
+                </form>
+            </div>
+        </div>
+        }
+    </div>
+</section>
