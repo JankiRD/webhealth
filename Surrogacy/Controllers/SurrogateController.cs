@@ -10,6 +10,7 @@ using Surrogacy.Service;
 using Surrogacy.Util;
 using static Surrogacy.Entity.FormData;
 using static Surrogacy.MvcApplication;
+using System.IO;
 
 namespace Surrogacy.Controllers
 {
@@ -29,13 +30,15 @@ namespace Surrogacy.Controllers
             SurrogateService surrogateService = new SurrogateService();
             SurrogatePersonalInfo surrogatePersonalInfo = new SurrogatePersonalInfo();
 
-            try {
+            try
+            {
                 surrogatePersonalInfo.UserID = ApplicationManager.LoggedInUser.UserID;
                 surrogatePersonalInfo.EntityState = EntityState.View;
 
                 surrogatePersonalInfo = surrogateService.SaveSurrogatePersonalInfo(surrogatePersonalInfo);
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
                 LoggerHelper.WriteToLog(ex);
             }
@@ -53,7 +56,7 @@ namespace Surrogacy.Controllers
             {
                 if (ValidatePersonalInfoForm(surrogatePersonalInfo, out validationMessage))
                 {
-                    surrogatePersonalInfo.EntityState = surrogatePersonalInfo.SurrogateID != null ?  EntityState.Edit : EntityState.Save;
+                    surrogatePersonalInfo.EntityState = surrogatePersonalInfo.SurrogateID != null ? EntityState.Edit : EntityState.Save;
                     surrogatePersonalInfo.ChangeBy = ApplicationManager.LoggedInUser.UserID;
                     surrogatePersonalInfo.UserID = ApplicationManager.LoggedInUser.UserID;
 
@@ -168,7 +171,7 @@ namespace Surrogacy.Controllers
                 }
                 else
                 {
-                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);                    
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
 
                     return View("MedicalInfo", medicalInfo);
                 }
@@ -256,7 +259,7 @@ namespace Surrogacy.Controllers
                 }
                 else
                 {
-                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);                    
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
 
                     return View("HistoryInfo", surrogacyhistory);
                 }
@@ -338,7 +341,7 @@ namespace Surrogacy.Controllers
                 }
                 else
                 {
-                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);                    
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
 
                     return View("PregnancyHistory", pregnancyhistory);
                 }
@@ -451,12 +454,387 @@ namespace Surrogacy.Controllers
             IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(medicalhealth.Suicide), "SUICIDE", "Have you ever attempted suicide?", true));
             IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(medicalhealth.Thoughts), "THOUGHTS", "Have you ever had suicidal thoughts?", true));
             IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(medicalhealth.Professional), "PROFESSIONAL", "Have you ever been treated by a mental health professional?", true));
+
+            boolResponse = FormValidator.validateForm(IsMedicalHelathFormData, out responseMessage);
+            return boolResponse;
+        }
+
+        #endregion MentalHealth   
+
+        #region LifeStyle
+        [CheckSessionOut]
+        public ActionResult LifeStyle()
+        {
+            SurrogateService lifestyleservice = new SurrogateService();
+            LifeStyle lifestyle = new LifeStyle();
+
+            try
+            {
+                lifestyle.UserID = ApplicationManager.LoggedInUser.UserID;
+                lifestyle.EntityState = EntityState.View;
+
+                lifestyle = lifestyleservice.SaveLifeStyle(lifestyle);
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("LifeStyle", lifestyle);
+        }
+
+        [HttpPost]
+        [CheckSessionOut]
+        public ActionResult LifeStyle(LifeStyle lifestyle)
+        {
+            SurrogateService lifestyleservice = new SurrogateService();
+            string validationMessage = string.Empty;
+            try
+            {
+                if (ValidateMedicalInfoForm(lifestyle, out validationMessage))
+                {
+                    lifestyle.EntityState = lifestyle.LifeStyleID != null ? EntityState.Edit : EntityState.Save;
+                    lifestyle.ChangeBy = ApplicationManager.LoggedInUser.UserID;
+                    lifestyle.UserID = ApplicationManager.LoggedInUser.UserID;
+
+                    lifestyle = lifestyleservice.SaveLifeStyle(lifestyle);
+
+                    if (lifestyle.responseDetail.responseType == ResponseType.Error)
+                    {
+                        WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), lifestyle.responseDetail.ResponseMessage, "5000");
+
+                        return View("LifeStyle", lifestyle);
+                    }
+                    else
+                    {
+                        WebHelper.SetMessageBoxProperties(this, ResponseType.Success);
+                    }
+                }
+                else
+                {
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
+
+                    return View("LifeStyle", lifestyle);
+                }
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("LifeStyle", lifestyle);
+        }
+
+        private bool ValidateMedicalInfoForm(LifeStyle lifestyle, out string responseMessage)
+        {
+            bool boolResponse = true;
+            responseMessage = "<ul>";
+
+            List<FormData> IsMedicalHelathFormData = new List<FormData>();
+
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(lifestyle.Smoke), "SMOKE", "Do you smoke? ", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(lifestyle.MemberSmoke), "MEMBERSMOKE", "Does any member of your household smoke? ", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(lifestyle.Alcohol), "ALCOHOL", "Do you drink more than 3 glasses of alcohol per week?", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(lifestyle.Drug), "DRUG", "Do you use illegal or recreational drugs?", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.DropDownListValue, Convert.ToString(lifestyle.Past), "PAST", "Have you ever abused or had a problem with alcohol or drugs in the past?", true));
+
+            boolResponse = FormValidator.validateForm(IsMedicalHelathFormData, out responseMessage);
+            return boolResponse;
+        }
+
+        #endregion LifeStyle       
+
+        #region Documents
+        [CheckSessionOut]
+        public ActionResult Documents(HttpPostedFileBase file)
+        {
+            SurrogateService documentsservice = new SurrogateService();
+            Documents document = new Documents();
+
+            try
+            {
+                document.UserID = ApplicationManager.LoggedInUser.UserID;
+                document.EntityState = EntityState.View;
+
+                document = documentsservice.SaveDocuments(document);
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("Documents", document);
+        }
+
+        [HttpPost]
+        [CheckSessionOut]
+        public ActionResult Documents(Documents document)
+        {
+            SurrogateService documentsservice = new SurrogateService();
+            string validationMessage = string.Empty;
+            try
+            {
+                if (ValidateMedicalInfoForm(document, out validationMessage))
+                {
+                    document.EntityState = document.DocumentID != null ? EntityState.Edit : EntityState.Save;
+                    document.ChangeBy = ApplicationManager.LoggedInUser.UserID;
+                    document.UserID = ApplicationManager.LoggedInUser.UserID;
+
+                    document = documentsservice.SaveDocuments(document);
+
+                    if (document.responseDetail.responseType == ResponseType.Error)
+                    {
+                        WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), document.responseDetail.ResponseMessage, "5000");
+
+                        return View("Documents", document);
+                    }
+                    else
+                    {
+                        WebHelper.SetMessageBoxProperties(this, ResponseType.Success);
+                    }
+                }
+                else
+                {
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
+
+                    return View("Documents", document);
+                }
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("Documents", document);
+        }
+
+        private bool ValidateMedicalInfoForm(Documents document, out string responseMessage)
+        {
+            bool boolResponse = true;
+            responseMessage = "<ul>";
+
+            List<FormData> IsMedicalHelathFormData = new List<FormData>();
+
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.File, Convert.ToString(document.IDProof), "IDPROOF", "Picture of Government issued ID card", true));
+
+            boolResponse = FormValidator.validateForm(IsMedicalHelathFormData, out responseMessage);
+            return boolResponse;
+        }
+        #endregion Documents
+
+        #region DocUpoad
+        [HttpGet]
+        public ActionResult UploadIDProof()
+        {
+            return View("Upload");
+        }
+
+        [HttpPost]
+        public ActionResult UploadIDProof(HttpPostedFileBase file)
+        {
+            try
+            {
+                UploadFileOnPath(file, CustomFileType.IdProof);
+                ViewBag.Message = "File Uploaded Successfully!!";
+                return View("Upload");
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View("Upload");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult UploadPic()
+        {
+            return View("Upload");
+        }
+
+        [HttpPost]
+        public ActionResult UploadPic(HttpPostedFileBase file)
+        {
+            try
+            {
+                UploadFileOnPath(file, CustomFileType.Pic);
+
+                ViewBag.Message = "File Uploaded Successfully!!";
+                return View("Upload");
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View("Upload");
+            }
+        }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        public bool UploadFileOnPath(HttpPostedFileBase file, CustomFileType FileType)
+        {
+            bool result = false;
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    SurrogateService surrogateService = new SurrogateService();
+                    Documents documents = new Documents();
+
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _FileType = string.Empty;
+                    string _NewFileName = string.Empty;
+
+                    string _RootPath = Server.MapPath(@"~/UploadedFiles/" + ApplicationManager.LoggedInUser.UserID.ToString());
+                    if (!System.IO.File.Exists(_RootPath))
+                    {
+                        Directory.CreateDirectory(_RootPath);
+                    }
+
+                    string _path = Path.Combine(_RootPath, _FileName);
+                    file.SaveAs(_path);
+                    _FileType = Path.GetExtension(Path.Combine(_RootPath, _FileName));
+                    _NewFileName = _FileName + "_" + Path.GetRandomFileName() + _FileType;
+                    System.IO.File.Move(Path.Combine(_RootPath, _FileName), Path.Combine(_RootPath, _NewFileName));
+
+                    documents.UserID = ApplicationManager.LoggedInUser.UserID.ToString();
+                    documents.IDProof = _NewFileName;
+                    documents.UploadPath = _RootPath;
+                    documents.EntityState = EntityState.Save;
+                    documents.ChangeBy = ApplicationManager.LoggedInUser.UserID.ToString();
+
+                    documents = surrogateService.SaveDocuments(documents);
+
+                    switch (FileType)
+                    {
+                        case CustomFileType.IdProof:
+                            ApplicationManager.UploadedIDProof = _NewFileName;
+
+                            break;
+                        case CustomFileType.Pic:
+                            ApplicationManager.UploadedPic = _NewFileName;
+                            break;
+                        case CustomFileType.FamilyPic:
+                            ApplicationManager.UploadedFamilyPic = _NewFileName;
+                            break;
+                    }
+                }
+
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Success.ToString(), "Document uploaded Successfully!", "5000");
+
+                WebHelper.SetMessageBoxProperties(this, ResponseType.Success, "Document uploaded Successfully!");
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.WriteToLog(ex);
+                result = false;
+            }
+
+            return result;
+        }
+        #endregion DocUplaod       
+
+        #region Doc Download
+        public FileResult Download()
+        {
+            var FileVirtualPath = "~/UploadedFiles/" + ApplicationManager.LoggedInUser.UserID.ToString() + "/" + ApplicationManager.UploadedIDProof;
+            return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
+        }
+        #endregion Doc Download
+
+        #region FinalSubmit
+        [CheckSessionOut]
+        public ActionResult FinalSubmit()
+        {
+            SurrogateService finalsubmitservice = new SurrogateService();
+            FinalSubmit finalsubmit = new FinalSubmit();
+
+            try
+            {
+                finalsubmit.UserID = ApplicationManager.LoggedInUser.UserID;
+                finalsubmit.EntityState = EntityState.View;
+
+                finalsubmit = finalsubmitservice.SaveFinalSubmit(finalsubmit);
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("FinalSubmit", finalsubmit);
+        }
+
+        [HttpPost]
+        [CheckSessionOut]
+        public ActionResult FinalSubmit(FinalSubmit finalsubmit)
+        {
+            SurrogateService finalsubmitservice = new SurrogateService();
+            string validationMessage = string.Empty;
+            try
+            {
+                if (ValidateMedicalInfoForm(finalsubmit, out validationMessage))
+                {
+                    finalsubmit.EntityState = finalsubmit.FinalSubmitID != null ? EntityState.Edit : EntityState.Save;
+                    finalsubmit.ChangeBy = ApplicationManager.LoggedInUser.UserID;
+                    finalsubmit.UserID = ApplicationManager.LoggedInUser.UserID;
+
+                    finalsubmit = finalsubmitservice.SaveFinalSubmit(finalsubmit);
+
+                    if (finalsubmit.responseDetail.responseType == ResponseType.Error)
+                    {
+                        WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), finalsubmit.responseDetail.ResponseMessage, "5000");
+
+                        return View("FinalSubmit", finalsubmit);
+                    }
+                    else
+                    {
+                        WebHelper.SetMessageBoxProperties(this, ResponseType.Success);
+                    }
+                }
+                else
+                {
+                    WebHelper.SetMessageBoxProperties(this, ResponseType.Error, validationMessage);
+
+                    return View("FinalSubmit", finalsubmit);
+                }
+            }
+            catch (Exception ex)
+            {
+                WebHelper.SetMessageAlertProperties(this, ResponseType.Error.ToString(), ApplicationManager.GenericErrorMessage, "5000");
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return View("FinalSubmit", finalsubmit);
+        }
+
+        private bool ValidateMedicalInfoForm(FinalSubmit finalsubmit, out string responseMessage)
+        {
+            bool boolResponse = true;
+            responseMessage = "<ul>";
+
+            List<FormData> IsMedicalHelathFormData = new List<FormData>();
+
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.None, Convert.ToString(finalsubmit.Agree), "AGREE", "The following box must be selected in order to submit your application ", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.TextNotEmpty, Convert.ToString(finalsubmit.SurrogateSignature), "SIGNATURE", "Surrogate Mother Applicant Signature. Type your name into the box below.  ", true));
+            IsMedicalHelathFormData.Add(new FormData(FormInputType.Date, Convert.ToString(finalsubmit.SignDate), "DATE", "Date", true));
             
             boolResponse = FormValidator.validateForm(IsMedicalHelathFormData, out responseMessage);
             return boolResponse;
         }
 
-        #endregion MentalHealth        
+        #endregion LifeStyle       
+
+
+
 
     }
 }

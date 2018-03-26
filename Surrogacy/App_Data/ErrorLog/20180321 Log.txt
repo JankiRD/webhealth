@@ -1,0 +1,53 @@
+-------------------------------------------------------------
+03/21/2018 12:46:52.265
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 46
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/21/2018 23:10:08.646
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 177
+   at Surrogacy.Service.SurrogateService.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 242
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/21/2018 23:15:07.910
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 177
+   at Surrogacy.Service.SurrogateService.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 242
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/21/2018 23:17:27.861
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 177
+   at Surrogacy.Service.SurrogateService.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 242
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/21/2018 23:17:45.967
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 177
+   at Surrogacy.Service.SurrogateService.SaveLifeStyle(LifeStyle lifestyle) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 242
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+

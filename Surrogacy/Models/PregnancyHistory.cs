@@ -18,12 +18,12 @@ namespace Surrogacy.Models
         public Int16 NoMisCarriage { get; set; }
         public Int16 NoLiveBirth { get; set; }
         public Int16 NoAbortion { get; set; }
-        public String List { get; set; }
-        public String Treatment { get; set; }
-        public String Complication { get; set; }
-        public String Desc { get; set; }
-        public String ChildDeath { get; set; }
-        public String Problem { get; set; }
+        public string List { get; set; }
+        public string Treatment { get; set; }
+        public string Complication { get; set; }
+        public string Desc { get; set; }
+        public string ChildDeath { get; set; }
+        public string Problem { get; set; }
         public int IsSubmit { get; set; }
     }
 }

@@ -1,0 +1,100 @@
+﻿@model Surrogacy.Models.FinalSubmit
+@using Surrogacy.Helper
+@using Surrogacy.Util
+
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Final Submit";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@*
+    $("#messageBox").hide();
+    lblMessage.InnerText = " Please correct below error first.";
+    divSubMessage.InnerHtml = responseMessage;
+    divSubMessage.Attributes["style"] = "display:none";
+    messageBox.Attributes["class"] = "alert alert-success alert-dismissable";
+    messageBox.Attributes["style"] = "display:block";
+    messageBox.Attributes["class"] = "alert alert-danger alert-dismissable";
+*@
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+        <div class="col-md-12">
+            <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                <br />
+                <div class="validation-summary-errors" id="divSubMessage">
+                    @Html.Raw(ViewBag.MessageSummary)
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">RELEASE AND INDEMNIFICATION</h3>
+                    <div class="box-tools pull-right">
+                        <input type="submit" class="btn btn-info text-bold" value="Save">
+                        <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                            <i class="fa fa-minus text"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    
+                        <div>
+                            <p>
+                            <br/>
+                            I/We, (referred to as "Surrogate Mother Applicant") AND (referred to as "Spouse/Partner of Surrogate Mother applicant")
+                            <br /><br />
+                            ACKNOWLEDGE, AGREE AND SWEAR TO THE FOLLOWING TERMS:
+                            <br /><br />
+                            1. It is my/our desire to enter into a surrogacy arrangement with individuals who desire to become parents. All of the information I have provided to Surrogacy in Canada Online in this application is complete, true and accurate to the best of my knowledge.
+                            <br /><br />
+                            2. Surrogacy in Canada Online did not coerce, induce or unduly influence my/our decision to apply to be a surrogate mother.
+                            <br /><br />
+                            3. Surrogacy in Canada Online does not represent me/us or will be providing us with legal or medical counsel.
+                            <br /><br />
+                            4. Surrogacy in Canada Online is not party to any agreement that I/we may enter into with intended parents.
+                            <br /><br />
+                            5. Surrogacy in Canada Online makes no representations, warranties or guarantees regarding the intended parents and the surrogacy process and I/we understand and agree that they cannot predict or control the intended parents or how a court may interpret or enforce any surrogacy agreement I/we may enter into with intended parents. Furthermore, I/we acknowledge that Surrogacy in Canada Online, their employees and representatives do not have the authority or ability to predict or control my/our actions, conduct, negligence, or my/our failures to act nor the authority or ability to predict or control the actions, conduct, negligence, or failure to act of the intended parents.
+                            <br /><br />
+                            6. Surrogacy in Canada Online will be providing my/our application and the information I/we provided with it to prospective intended parents electronically and/or in print. I/We acknowledge that Surrogacy in Canada Online provides my/our information to prospective intended parents and hereby consent to my/our application and related information being provided electronically and/or in print.
+                            <br /><br />
+                            7. I/We hereby release and discharge Surrogacy in Canada Online, their employees and representatives from all liability and all manners of action, suits, causes of actions, proceedings, debts, claims, an demands whatsoever in law or equity resulting from my/our decision to be a surrogate mother and any adverse consequences or damages that may result from my/our involvement with the surrogacy process.
+                            <br /><br />
+                            8. I/We have had the opportunity to consult with legal counsel regarding this Release and Indemnification and have done so or have decided on my/our own accord not to consult with legal counsel.
+                            <br /></p><br />
+
+                        </div>
+                    <form class="form-inline" role="form">
+                        <div class="form-group col-lg-8">
+                            <p style="font-weight:300">The following box must be selected in order to submit your application.<span class="required text-red">*</span></p>
+                            @Html.CheckBoxFor(model => model.Agree, new { required = "true" })   
+
+                        </div>
+                        <div class="form-group col-lg-8">
+
+                            <p>Middle NameSurrogate Mother Applicant Signature. Type your name into the box below.<span class="required text-red">*</span></p>
+                            @Html.TextBoxFor(model => model.SurrogateSignature, new { @class = "form-control", placeholder = "Middle name", required = "true" })
+
+                        </div>
+                        <div class="form-group col-lg-8">
+                            <p>Date *<span class="required text-red">*</span></p>
+                            @Html.TextBoxFor(model => model.SignDate, new { @class = "form-control", @id = "datepickerdob", placeholder = "MM/DD/YYYY", required = "true" })
+                        </div>
+
+                        <div class="hidden">
+                            @Html.HiddenFor(model => model.FinalSubmitID)
+                            @Html.HiddenFor(model => model.UserID)
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>

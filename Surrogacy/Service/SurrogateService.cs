@@ -230,5 +230,121 @@ namespace Surrogacy.Service
 
             return localmentalhealth == null ? new MentalHealth() : localmentalhealth;
         }
+
+        public LifeStyle SaveLifeStyle(LifeStyle lifestyle)
+        {
+            LifeStyle locallifestyle = new LifeStyle();
+            SurrogateData lifestyledata = new SurrogateData();
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                dataSet = lifestyledata.SaveLifeStyle(lifestyle);
+
+                if (dataSet.Tables["LifeStyle"].Rows.Count > 0)
+                {
+                    locallifestyle = new LifeStyle();
+                    locallifestyle.LifeStyleID = dataSet.Tables["LifeStyle"].Rows[0]["LIFESTYLEID"].ToString();
+                    locallifestyle.UserID = dataSet.Tables["LifeStyle"].Rows[0]["USERID"].ToString();
+                    locallifestyle.Smoke = dataSet.Tables["LifeStyle"].Rows[0]["SMOKE"].ToString();
+                    locallifestyle.MemberSmoke = dataSet.Tables["LifeStyle"].Rows[0]["MEMBERSMOKE"].ToString();
+                    locallifestyle.Alcohol = dataSet.Tables["LifeStyle"].Rows[0]["ALCOHOL"].ToString();
+                    locallifestyle.Drug = dataSet.Tables["LifeStyle"].Rows[0]["DRUG"].ToString();
+                    locallifestyle.Past = dataSet.Tables["LifeStyle"].Rows[0]["PAST"].ToString();
+                    locallifestyle.SpouseDrug = dataSet.Tables["LifeStyle"].Rows[0]["SPOUSEDRUG"].ToString();
+                    locallifestyle.IsSubmit = dataSet.Tables["LifeStyle"].Rows[0]["ISSUBMIT"].ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                locallifestyle.responseDetail.responseType = ResponseType.Error;
+                locallifestyle.responseDetail.ResponseMessage = sqlEx.Message;
+            }
+            catch (Exception ex)
+            {
+                locallifestyle.responseDetail.responseType = ResponseType.Error;
+                locallifestyle.responseDetail.ResponseMessage = ApplicationManager.GenericErrorMessage;
+
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return locallifestyle == null ? new LifeStyle() : locallifestyle;
+        }
+
+        public Documents SaveDocuments(Documents documents)
+        {
+            Documents localdocument = new Documents();
+            SurrogateData documentdata = new SurrogateData();
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                dataSet = documentdata.SaveDocuments(documents);
+
+                if (dataSet.Tables["Document"].Rows.Count > 0)
+                {
+                    localdocument = new Documents();
+                    localdocument.DocumentID = dataSet.Tables["Document"].Rows[0]["DOCUMENTID"].ToString();
+                    localdocument.UserID = dataSet.Tables["Document"].Rows[0]["USERID"].ToString();
+                    localdocument.IDProof = dataSet.Tables["Document"].Rows[0]["IDPROOF"].ToString();
+                    localdocument.Pic = dataSet.Tables["Document"].Rows[0]["PIC"].ToString();
+                    localdocument.FamilyPic = dataSet.Tables["Document"].Rows[0]["FAMILYPIC"].ToString();
+                    localdocument.UploadPath = dataSet.Tables["Document"].Rows[0]["UPLOADPATH"].ToString();
+                    localdocument.IsSubmit = dataSet.Tables["Document"].Rows[0]["ISSUBMIT"].ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                localdocument.responseDetail.responseType = ResponseType.Error;
+                localdocument.responseDetail.ResponseMessage = sqlEx.Message;
+            }
+            catch (Exception ex)
+            {
+                localdocument.responseDetail.responseType = ResponseType.Error;
+                localdocument.responseDetail.ResponseMessage = ApplicationManager.GenericErrorMessage;
+
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return localdocument == null ? new Documents() : localdocument;
+        }
+
+        public FinalSubmit SaveFinalSubmit(FinalSubmit finalsubmit)
+        {
+            FinalSubmit localfinalsubmit = new FinalSubmit();
+            SurrogateData finalsubmitdata = new SurrogateData();
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                dataSet = finalsubmitdata.SaveFinalSubmit(finalsubmit);
+
+                if (dataSet.Tables["FinalSubmit"].Rows.Count > 0)
+                {
+                    localfinalsubmit = new FinalSubmit();
+                    localfinalsubmit.FinalSubmitID = dataSet.Tables["FinalSubmit"].Rows[0]["FINALSUBMITID"].ToString();
+                    localfinalsubmit.UserID = dataSet.Tables["FinalSubmit"].Rows[0]["USERID"].ToString();
+                    localfinalsubmit.Agree = Convert.ToBoolean(dataSet.Tables["FinalSubmit"].Rows[0]["AGREE"].ToString());
+                    localfinalsubmit.SurrogateSignature = dataSet.Tables["FinalSubmit"].Rows[0]["SURROGATESIGNATURE"].ToString();
+                    localfinalsubmit.SignDate = dataSet.Tables["FinalSubmit"].Rows[0]["SIGNDATE"].ToString();
+                    localfinalsubmit.IsSubmitted = dataSet.Tables["FinalSubmit"].Rows[0]["ISSUBMITTED"].ToString();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                localfinalsubmit.responseDetail.responseType = ResponseType.Error;
+                localfinalsubmit.responseDetail.ResponseMessage = sqlEx.Message;
+            }
+            catch (Exception ex)
+            {
+                localfinalsubmit.responseDetail.responseType = ResponseType.Error;
+                localfinalsubmit.responseDetail.ResponseMessage = ApplicationManager.GenericErrorMessage;
+
+                LoggerHelper.WriteToLog(ex);
+            }
+
+            return localfinalsubmit == null ? new FinalSubmit() : localfinalsubmit;
+        }
+
     }
 }

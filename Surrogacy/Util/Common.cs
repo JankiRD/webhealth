@@ -58,5 +58,12 @@ namespace Surrogacy.Util
         ParentCategory
     }
 
+    public enum CustomFileType
+    {
+       IdProof,
+       Pic,
+       FamilyPic
+    }
+
     #endregion Enum Properties    
 }

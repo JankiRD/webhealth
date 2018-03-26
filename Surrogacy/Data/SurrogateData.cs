@@ -155,5 +155,93 @@ namespace Surrogacy.Data
 
             return dataSet;
         }
+
+        public DataSet SaveLifeStyle(LifeStyle lifestyle)
+        {
+            DataSet dataSet = new DataSet();
+            try
+            {
+                string storedProcedure = "pSRGg_LifeStyle";
+                string parameterName = "@aXMLString";
+                string parameterValue = ObjectHelper.GetXMLFromObject(lifestyle);
+                sqlCommand = new SqlCommand(storedProcedure, sqlConnection);
+                sqlCommand.Parameters.AddWithValue(parameterName, parameterValue);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                sqlDataAdapter.Fill(dataSet);
+                dataSet.Tables[0].TableName = "LIFESTYLE";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+            return dataSet;
+        }
+
+        public DataSet SaveDocuments(Documents documents)
+        {
+            DataSet dataSet = new DataSet();
+            try
+            {
+                string storedProcedure = "pSRGg_Documents";
+                string parameterName = "@aXMLString";
+                string parameterValue = ObjectHelper.GetXMLFromObject(documents);
+                sqlCommand = new SqlCommand(storedProcedure, sqlConnection);
+                sqlCommand.Parameters.AddWithValue(parameterName, parameterValue);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                sqlDataAdapter.Fill(dataSet);
+                dataSet.Tables[0].TableName = "DOCUMENT";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+            return dataSet;
+        }
+
+        public DataSet SaveFinalSubmit(FinalSubmit finalsubmit)
+        {
+            DataSet dataSet = new DataSet();
+            try
+            {
+                string storedProcedure = "pSRGg_FinalSubmit";
+                string parameterName = "@aXMLString";
+                string parameterValue = ObjectHelper.GetXMLFromObject(finalsubmit);
+                sqlCommand = new SqlCommand(storedProcedure, sqlConnection);
+                sqlCommand.Parameters.AddWithValue(parameterName, parameterValue);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+                sqlDataAdapter.SelectCommand = sqlCommand;
+                sqlDataAdapter.Fill(dataSet);
+                dataSet.Tables[0].TableName = "FINALSUBMIT";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+            return dataSet;
+        }
+
     }
 }

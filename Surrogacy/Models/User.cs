@@ -33,6 +33,6 @@ namespace Surrogacy.Models
         public int? PasswordExpired { get; set; }
         public DateTime? LastPasswordExpired { get; set; }
         public int? ResetPassword { get; set; }
-
+        public string IDProof { get; set; }
     }
 }

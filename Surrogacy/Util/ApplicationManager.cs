@@ -32,6 +32,9 @@ namespace Surrogacy.Util
         public static string UserAvatar { get; set; }
         public static string RedirectUrl { get; set; }
         public static User LoggedInUser { get; set; }
+        public static string UploadedIDProof { get; set; }
+        public static string UploadedPic { get; set; }
+        public static string UploadedFamilyPic { get; set; }
 
         //Application property
         public static List<SystemConfiguration> SystemConfigurationList { get; set; }
@@ -131,6 +134,7 @@ namespace Surrogacy.Util
         {
             IsUserLoggedIn = true;
             UserName = user.UserName;
+            UploadedIDProof = user.IDProof;
             UserFullName = user.FirstName + " " + user.LastName;
             LoggedInUser = user;
 

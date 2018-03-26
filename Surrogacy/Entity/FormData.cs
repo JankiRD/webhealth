@@ -36,7 +36,8 @@ namespace Surrogacy.Entity
             Weight,
             TextNotEmpty,
             NumericOrZero,
-            Date
+            Date,
+            File
         }
 
         public FormInputType inputType { get; set; }

@@ -1074,11 +1074,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DoctorDashboardController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\InfoSurrogateController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SurrogateController.cs" />
     <Compile Include="Data\BaseData.cs" />
     <Compile Include="Data\CommonData.cs" />
     <Compile Include="Data\DashboardData.cs" />
+    <Compile Include="Data\DoctorDashboadData.cs" />
+    <Compile Include="Data\InfoSurrogateData.cs" />
+    <Compile Include="Data\ListData.cs" />
     <Compile Include="Data\SurrogateData.cs" />
     <Compile Include="Data\UserData.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
@@ -1100,6 +1107,12 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\DoctorDashboard.cs" />
+    <Compile Include="Models\Documents.cs" />
+    <Compile Include="Models\FinalSubmit.cs" />
+    <Compile Include="Models\InfoSurrogate.cs" />
+    <Compile Include="Models\LifeStyle.cs" />
+    <Compile Include="Models\ListSurrogate.cs" />
     <Compile Include="Models\MedicalInfo.cs" />
     <Compile Include="Models\MentalHealth.cs" />
     <Compile Include="Models\PregnancyHistory.cs" />
@@ -1109,6 +1122,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CommonService.cs" />
     <Compile Include="Service\DashboardService.cs" />
+    <Compile Include="Service\DoctorDashboadService.cs" />
+    <Compile Include="Service\InfoSurrogateService.cs" />
+    <Compile Include="Service\ListService.cs" />
     <Compile Include="Service\SurrogateService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Util\Common.cs" />
@@ -1258,6 +1274,13 @@
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Surrogate\MentalHealth.cshtml" />
     <Content Include="Views\Shared\_MasterLayout - Copy.cshtml" />
+    <Content Include="Views\Surrogate\LifeStyle.cshtml" />
+    <Content Include="Views\Surrogate\Upload.cshtml" />
+    <Content Include="Views\Surrogate\FinalSubmit.cshtml" />
+    <Content Include="Views\List\ListSurrogate.cshtml" />
+    <Content Include="Views\InfoSurrogate\InfoSurrogateDetail.cshtml" />
+    <Content Include="Views\DoctorDashboard.cshtml" />
+    <Content Include="Views\DoctorDashboard\DoctorDashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1267,6 +1290,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
+    <Folder Include="Views\Document\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

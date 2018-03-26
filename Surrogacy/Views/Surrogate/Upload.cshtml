@@ -1,0 +1,84 @@
+﻿@using Surrogacy.Util
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";    
+}
+
+<section class="content">
+    @if (ViewBag.ShowMessage == true)
+    {
+        <div class="col-md-12">
+            <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                <br />
+                <div class="validation-summary-errors" id="divSubMessage">
+                    @Html.Raw(ViewBag.MessageSummary)
+                </div>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm("UploadIDProof", "Surrogate", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="col-md-12">
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Document</h3>
+                    <div class="box-tools pull-right">
+                        <input type="submit" class="btn btn-info text-bold" value="Upload">
+                        <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                            <i class="fa fa-minus text"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form class="form-inline" role="form">
+                        <div>
+                            <label class="file-upload btn btn-primary">
+                                @Html.TextBox("file", "", new { @class = "form-control", type = "file" })
+                            </label>
+                            @(string.IsNullOrEmpty(ApplicationManager.UploadedIDProof) ? "" : ApplicationManager.UploadedIDProof)
+                        </div>
+                    </form>
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Document</th>
+                            <th>Status</th>
+                            <th>Download</th>
+                        </tr>
+                        <tr>
+                            <td>ID Proof</td>
+                            <td>
+                                @if (string.IsNullOrEmpty(ApplicationManager.UploadedIDProof))
+                                {
+                                    <span class="label label-warning">Pending to upload</span>
+                                }
+                                else
+                                {
+
+                                    <span class="label label-success">Uploaded</span>
+                                }
+                            </td>
+
+                            <td>
+                                @if (string.IsNullOrEmpty(ApplicationManager.UploadedIDProof))
+                                {
+                                    <a href="#"><i class="fa fa-cloud-download" style="font-size:20px" aria-hidden="true"> </i></a>
+                                }
+                                else
+                                {
+                                    <a href="/Surrogate/Download"><i class="fa fa-cloud-download" style="font-size:20px" aria-hidden="true"> </i></a>
+                                }
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+
+</section>

@@ -26,7 +26,8 @@ namespace Surrogacy.Service
                 if (dataSet.Tables["SEC_USER"].Rows.Count > 0)
                 {
                     localUser = new User();
-                    localUser.UserID = dataSet.Tables["SEC_USER"].Rows[0]["USERID"].ToString();                    
+                    localUser.UserID = dataSet.Tables["SEC_USER"].Rows[0]["USERID"].ToString();
+                    localUser.IDProof = dataSet.Tables["SEC_USER"].Rows[0]["IDPROOF"].ToString();                 
                     localUser.UserName = dataSet.Tables["SEC_USER"].Rows[0]["USERNAME"].ToString();                    
                     localUser.Title = dataSet.Tables["SEC_USER"].Rows[0]["TITLE"].ToString();
                     localUser.FirstName = dataSet.Tables["SEC_USER"].Rows[0]["FIRSTNAME"].ToString();

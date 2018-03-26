@@ -1,0 +1,71 @@
+﻿@model Surrogacy.Models.DoctorDashboard
+@using Surrogacy.Helper
+@using Surrogacy.Util
+
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Doctor Dashboad";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@{
+    ViewBag.Title = "DoctorDashboard";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@Model.ApprovedApplication</h3>
+                    <p>Approved Surrogate Application</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>@Model.RejectedApplication</h3>
+                    <p>Approved Surrogate Application</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>@Model.RejectedApplication</h3>
+                    <p>Pending Surrogate Application</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>@Model.NAApplication</h3>
+                    <p>Approved Surrogate Application</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

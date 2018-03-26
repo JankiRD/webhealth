@@ -1,0 +1,77 @@
+-------------------------------------------------------------
+03/25/2018 11:46:47.721
+-------------------------------------------------------------
+[Message]      : Cannot find table 0.
+[StackTrace]   :    at System.Data.DataTableCollection.get_Item(Int32 index)
+   at Surrogacy.Data.SurrogateData.SaveFinalSubmit(FinalSubmit finalsubmit) in E:\CurrentProject\Surrogacy\Surrogacy\Data\SurrogateData.cs:line 235
+   at Surrogacy.Service.SurrogateService.SaveFinalSubmit(FinalSubmit finalsubmit) in E:\CurrentProject\Surrogacy\Surrogacy\Service\SurrogateService.cs:line 320
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataTable get_Item(Int32)
+
+
+-------------------------------------------------------------
+03/25/2018 18:47:56.830
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+
+-------------------------------------------------------------
+03/25/2018 18:55:05.335
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+
+-------------------------------------------------------------
+03/25/2018 18:56:49.905
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+
+-------------------------------------------------------------
+03/25/2018 19:00:43.056
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+
+-------------------------------------------------------------
+03/25/2018 19:07:30.497
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+
+-------------------------------------------------------------
+03/25/2018 19:12:10.910
+-------------------------------------------------------------
+[Message]      : Column 'USERID' does not belong to table DoctorDashboard.
+[StackTrace]   :    at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at Surrogacy.Service.DoctorDashboadService.ViewDoctorDashboardData(DoctorDashboard doctordashboard) in E:\CurrentProject\Surrogacy\Surrogacy\Service\DoctorDashboadService.cs:line 33
+[Source]       : System.Data
+[TargetSite]   : System.Data.DataColumn GetDataColumn(System.String)
+
+

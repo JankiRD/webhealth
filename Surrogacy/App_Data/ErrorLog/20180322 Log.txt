@@ -1,0 +1,74 @@
+-------------------------------------------------------------
+03/22/2018 14:53:11.437
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 46
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:39:08.737
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Util.ApplicationManager.InitlizeUserSession(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Util\ApplicationManager.cs:line 141
+   at Surrogacy.Controllers.AccountController.Register(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\AccountController.cs:line 132
+[Source]       : Surrogacy
+[TargetSite]   : Void InitlizeUserSession(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:41:37.695
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Util.ApplicationManager.InitlizeUserSession(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Util\ApplicationManager.cs:line 141
+   at Surrogacy.Controllers.AccountController.Register(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\AccountController.cs:line 132
+[Source]       : Surrogacy
+[TargetSite]   : Void InitlizeUserSession(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:43:05.637
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 47
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:46:13.742
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 47
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:48:21.891
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 47
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:52:16.137
+-------------------------------------------------------------
+[Message]      : Unauthorized access. Please try again!
+[StackTrace]   :    at Surrogacy.Service.UserService.validateUser(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Service\UserService.cs:line 47
+[Source]       : Surrogacy
+[TargetSite]   : Surrogacy.Models.User validateUser(Surrogacy.Models.User)
+
+
+-------------------------------------------------------------
+03/22/2018 21:52:33.828
+-------------------------------------------------------------
+[Message]      : Object reference not set to an instance of an object.
+[StackTrace]   :    at Surrogacy.Controllers.AccountController.Login(User user) in E:\CurrentProject\Surrogacy\Surrogacy\Controllers\AccountController.cs:line 51
+[Source]       : Surrogacy
+[TargetSite]   : System.Web.Mvc.ActionResult Login(Surrogacy.Models.User)
+
+

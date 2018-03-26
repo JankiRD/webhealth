@@ -1,0 +1,435 @@
+﻿@model Surrogacy.Models.InfoSurrogate
+@using Surrogacy.Helper
+@using Surrogacy.Util
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Info Surrogate";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<!-- Main content -->
+<br/>
+@if(ApplicationManager.LoggedInUser.UserRoleName=="Doctor")
+{ 
+    <div class="col-md-12">
+    @if (ViewBag.ShowMessage == true)
+    {
+        <div class="col-md-12">
+            <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                <br />
+                <div class="validation-summary-errors" id="divSubMessage">
+                    @Html.Raw(ViewBag.MessageSummary)
+                </div>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Approve/Reject Surrogate Profile</h3>
+                <div class="box-tools pull-right">
+                    <input type="submit" class="btn btn-info text-bold" value="Save">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group col-lg-8">
+                        <p>Approval Status<span class="required text-red">*</span></p>
+                        @Html.DropDownListFor(model => model.ApprovalStatus
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("APPROVALSTATUS")
+                                , new { @class = "form-control", required = "true" })
+
+                    </div>
+
+                    <div class="form-group col-lg-8">
+                        <p>Approval Status<span class="required text-red">*</span></p>
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Application status Description", required = "true" })
+
+                    </div>  <div class="hidden">
+                        @Html.HiddenFor(model => model.UserID)
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+}
+@if (ApplicationManager.LoggedInUser.UserRoleName == "Parents")
+{
+    <div class="col-md-12">
+        @if (ViewBag.ShowMessage == true)
+        {
+            <div class="col-md-12">
+                <div style="display: block" id="messageBox" class="alert alert-@(((string)ViewBag.MessageType).ToString().ToLower()) alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <strong id="headerMessage">@(ViewBag.MessageType)!</strong>
+                    <label id="lblMessage">@(ViewBag.MessageHeader)</label>
+                    <br />
+                    <div class="validation-summary-errors" id="divSubMessage">
+                        @Html.Raw(ViewBag.MessageSummary)
+                    </div>
+                </div>
+            </div>
+        }
+        @using (Html.BeginForm())
+        {
+            <div class="box box-solid box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Choose Surrogate</h3>
+                    <div class="box-tools pull-right">
+                        <input type="submit" class="btn btn-info text-bold" value="Save">
+                        <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                            <i class="fa fa-minus text"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form class="form-inline" role="form">
+                        <div class="form-group col-lg-8">
+                            <p>Choose Surrogate<span class="required text-red">*</span></p>
+                            @Html.DropDownListFor(model => model.ApprovalStatus
+                                , (IEnumerable<SelectListItem>)WebHelper.getMVCDropDown("YESNO")
+                                , new { @class = "form-control", required = "true" })
+
+                        </div>
+
+                        <div class="form-group col-lg-8">
+                            <p>Comments<span class="required text-red">*</span></p>
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Addition Description", required = "true" })
+
+                        </div>  <div class="hidden">
+                            @Html.HiddenFor(model => model.UserID)
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+<div class="col-md-12">
+        <div class="box box-solid box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Personal info</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                        <i class="fa fa-minus text"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr></tr>
+                        <tr>
+                            <td style="font-weight:700">Fist Name</td>
+                            <td>@Model.FirstName</td>
+                            <td style="font-weight:700">Last Name</td>
+                            <td>@Model.LastName</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Middle Name</td>
+                            <td>@Model.MiddleName</td>
+                            <td style="font-weight:700">Date of Birth</td>
+                            <td>@Model.DOB</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Age</td>
+                            <td>@Model.Age</td>
+                            <td style="font-weight:700">Citizenship</td>
+                            <td>@Model.Citizenship</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Height</td>
+                            <td>@Model.Height</td>
+                            <td style="font-weight:700">Weight</td>
+                            <td>@Model.Weight</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Marital Status</td>
+                            <td>@Model.MaritalStatus</td>
+                            <td style="font-weight:700">Spouse Full Name</td>
+                            <td>@Model.SpouseFullName</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Spouse DOB</td>
+                            <td>@Model.SpouseDOB</td>
+                            <td style="font-weight:700">No of child</td>
+                            <td>@Model.NoOfChild</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Have Step Child?</td>
+                            <td>@Model.StepChild</td>
+                            <td style="font-weight:700">Children Description</td>
+                            <td>@Model.ChildDescription</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Are you Pregnant?</td>
+                            <td>@Model.Pregnant</td>
+                            <td style="font-weight:700">Are you Adopted?</td>
+                            <td>@Model.Adopted</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700">Residence</td>
+                            <td>@Model.Residence</td>
+                            <td style="font-weight:700">Ethnic Background</td>
+                            <td>@Model.EthnicBackGround</td>
+                        </tr>
+                       
+                    </table>
+                </div>
+            </div>
+  </div>
+</div>
+<div class="col-md-12">
+    <div class="box box-solid box-primary collapsed-box">
+        <div class="box-header">
+            <h3 class="box-title">Surrogacy History</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                    <i class="fa fa-minus text"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr></tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever been a surrogate before? </td>
+                        <td>@Model.SurrogateBefore</td>
+                        <td style="font-weight:700">Have you ever donated eggs before?</td>
+                        <td>@Model.EggDonate</td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Detail on Surrogacy if ans on Surrogate before is Yes</td>
+                        <td>@Model.DetailSurrogate</td>
+                        <td style="font-weight:700">Detail on Egg Donation if ans on Egg Donation before is Yes.</td>
+                        <td>@Model.DetailEggDonate</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="box box-solid box-primary collapsed-box">
+        <div class="box-header">
+            <h3 class="box-title">Medical History</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                    <i class="fa fa-minus text"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr></tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever had an endometrial ablation procedure? (Burning of the uterine lining).</td>
+                        <td>@Model.Ablation</td>
+                        <td style="font-weight:700">Have you ever had weight loss surgery (such as gastric bypass)?</td>
+                        <td>@Model.WeightLoss</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Do you have any medical problems?</td>
+                        <td>@Model.Medical</td>
+                        <td style="font-weight:700">More details if answer to medical problem is Yes.</td>
+                        <td>@Model.MedicalDetail</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Are you currently taking any medications?</td>
+                        <td>@Model.Medication</td>
+                        <td style="font-weight:700">More details if answer to Medication is Yes.</td>
+                        <td>@Model.MedicationDetail</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Are you currently breastfeeding?</td>
+                        <td>@Model.BreastFeeding</td>
+                        <td style="font-weight:700">Do you have menstrual periods every month?</td>
+                        <td>@Model.Periods</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="box box-solid box-primary collapsed-box">
+        <div class="box-header">
+            <h3 class="box-title">Pregnancy History</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                    <i class="fa fa-minus text"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr></tr>
+                    <tr>
+                        <td style="font-weight:700">Number of pregnancies</td>
+                        <td>@Model.NoOfPregnancy</td>
+                        <td style="font-weight:700">Number of stillbirths</td>
+                        <td>@Model.NoStillBirth</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Number of miscarriages</td>
+                        <td>@Model.NoMisCarriage</td>
+                        <td style="font-weight:700">Number of live births.</td>
+                        <td>@Model.NoLiveBirth</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Number of abortions</td>
+                        <td>@Model.NoAbortion</td>
+                        <td style="font-weight:700">List each of your delivery dates, whether they were vaginal or caesarean, how many weeks you delivered at, and the weight of each baby</td>
+                        <td>@Model.ChildDescription</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">Did you have any severe complications with any of your pregnancies or births?</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">More details on fertility tratment if answer is Yes</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">More details on fertility tratment if answer is Yes</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">If any of your children are deceased, please state cause of death and the age of child at death</td>
+                        <td>@Model.ChildDeath</td>
+                        <td style="font-weight:700">Please list any and all emotional and/or physical problems you had with each pregnancy, delivery or after delivery</td>
+                        <td>@Model.Problem</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="box box-solid box-primary collapsed-box">
+        <div class="box-header">
+            <h3 class="box-title">Mental Info</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                    <i class="fa fa-minus text"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr></tr>
+                    <tr>
+                        <td style="font-weight:700">Number of pregnancies</td>
+                        <td>@Model.NoOfPregnancy</td>
+                        <td style="font-weight:700">Number of stillbirths</td>
+                        <td>@Model.NoStillBirth</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Number of miscarriages</td>
+                        <td>@Model.NoMisCarriage</td>
+                        <td style="font-weight:700">Number of live births.</td>
+                        <td>@Model.NoLiveBirth</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Number of abortions</td>
+                        <td>@Model.NoAbortion</td>
+                        <td style="font-weight:700">List each of your delivery dates, whether they were vaginal or caesarean, how many weeks you delivered at, and the weight of each baby</td>
+                        <td>@Model.ChildDescription</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">Did you have any severe complications with any of your pregnancies or births?</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">More details on fertility tratment if answer is Yes</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever received fertility treatment in an effort to become pregnant?</td>
+                        <td>@Model.Treatment</td>
+                        <td style="font-weight:700">More details on fertility tratment if answer is Yes</td>
+                        <td>@Model.Complication</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">If any of your children are deceased, please state cause of death and the age of child at death</td>
+                        <td>@Model.ChildDeath</td>
+                        <td style="font-weight:700">Please list any and all emotional and/or physical problems you had with each pregnancy, delivery or after delivery</td>
+                        <td>@Model.Problem</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="box box-solid box-primary collapsed-box">
+        <div class="box-header">
+            <h3 class="box-title">Life Style</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-info text-bold" data-widget="collapse">
+                    <i class="fa fa-minus text"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr></tr>
+                    <tr>
+                        <td style="font-weight:700">Do you smoke?</td>
+                        <td>@Model.Smoke</td>
+                        <td style="font-weight:700">Does any member of your household smoke?</td>
+                        <td>@Model.MemberSmoke</td>
+
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Do you drink more than 3 glasses of alcohol per week?</td>
+                        <td>@Model.Alcohol</td>
+                        <td style="font-weight:700">Do you use illegal or recreational drugs?</td>
+                        <td>@Model.Drug</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700">Have you ever abused or had a problem with alcohol or drugs in the past?</td>
+                        <td>@Model.Problem</td>
+                        <td style="font-weight:700">Does your spouse or partner use illegal or recreational drugs?</td>
+                        <td>@Model.SpouseDrug</td>
+                    </tr>   
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.content -->
+

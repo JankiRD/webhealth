@@ -86,8 +86,12 @@ namespace Surrogacy.Controllers
             {
                 return Redirect(RedirectToURL);
             }
-
-            return RedirectToAction("Dashboard", "Dashboard");
+            if(ApplicationManager.LoggedInUser.UserRoleName == "Doctor")
+            { return RedirectToAction("DoctorDashboard", "DoctorDashboard");  }
+            else if (ApplicationManager.LoggedInUser.UserRoleName == "Surrogate")
+            { return RedirectToAction("Dashboard", "Dashboard"); }
+            else { return RedirectToAction("ListSurrogate", "List"); }
+            
         }
 
         public ActionResult Logout()
@@ -143,7 +147,12 @@ namespace Surrogacy.Controllers
                     return View("Register", user);
                 }
 
-                return RedirectToAction("Dashboard", "Dashboard");
+                if (ApplicationManager.LoggedInUser.UserRoleName == "Doctor")
+                { return RedirectToAction("DoctorDashboard", "DoctorDashboard"); }
+                else if (ApplicationManager.LoggedInUser.UserRoleName == "Surrogate")
+                { return RedirectToAction("Dashboard", "Dashboard"); }
+                else { return RedirectToAction("ListSurrogate", "List"); }
+
             }
             catch (Exception ex)
             {

@@ -1,0 +1,153 @@
+﻿@model Surrogacy.Models.DoctorDashboard
+@using Surrogacy.Helper
+@using Surrogacy.Util
+
+@{
+    ViewBag.Title = ApplicationManager.ApplicationName + " | Doctor Dashboad";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+@{
+    ViewBag.Title = "DoctorDashboard";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@if (ApplicationManager.LoggedInUser.UserRoleName == "Doctor")
+{
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>@Model.ApprovedApplication</h3>
+                        <p>Approved Surrogate Application</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>@Model.RejectedApplication</h3>
+                        <p>Rejected Surrogate Application</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>@Model.PendingApplicaion</h3>
+                        <p>Pending Surrogate Application</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>@Model.NAApplication</h3>
+                        <p>NA Surrogate Application</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@Model.ApprovedApplication</h3>
+                    <p>No of Surrogate Available</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>40</h3>
+                    <p>No of Sucess Stories</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+            <!-- Box Comment -->
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <span class="username"><a href="#">Highlights on Surrogacy</a></span>
+                    </div>
+                    <!-- /.user-block -->
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+                            <i class="fa fa-circle-o"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                    <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <!-- post text -->
+                    <p>
+                        Surrogacy in Canada is a legal and successful alternative for those who have had difficulty or need assistance creating a family of their own. A great experience depends on trust, good communication and respect for all the parties that can be involved. Intimate and emotional, this journey should be well researched and prepared for. It can be a very rewarding experience for surrogate mothers and is often the only option for an infertile couple to have their own genetically related child.
+                    </p>
+                    <p>
+                        At Surrogacy in Second Hope, we believe every person has a right to become a parent via third party reproduction regardless of their ethnic origin, religion, age, marital status, gender or sexual orientation. The most important thing for us is to make your journey the best that it can be… and that is possible with the right match and proper support from a program like Surrogacy in Second Hope. We work with hundreds of intended parents, surrogates and egg donors each year and would be honoured to assist you on your journey!
+                    </p>
+                    <!-- Attachment -->
+                    
+                    <!-- /.attachment-block -->
+                    <!-- Social sharing buttons -->
+                    
+                </div>
+                <!-- /.box-body -->
+                
+                <!-- /.box-footer -->
+                
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    
+</section>
+
+    }
+
+
